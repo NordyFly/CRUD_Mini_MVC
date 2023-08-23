@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Modifier l'Utilisateur</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <header class="bg-primary text-white p-3">
+        <?php
+            if($flash !== null) {
+                echo $flash;
+            }
+        ?>
+    </header>
+    <main class="container mt-5">
+        <h2>Modifier l'Utilisateur</h2>
+        <form action="index.php?controller=index&method=update&id=<?php echo $user->getId(); ?>" method="post">
+            <input type="hidden" name="id" value="<?php echo $user->getId(); ?>">
+            <div class="form-group">
+                <label for="name">Nom:</label>
+                <input type="text" class="form-control" name="name" value="<?php echo $user->getName(); ?>" required>
+            </div>
+            <div class="form-group">
+                <label for="surname">Prénom:</label>
+                <input type="text" class="form-control" name="surname" value="<?php echo $user->getSurname(); ?>" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Mettre à jour</button>
+        </form>
+    </main>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

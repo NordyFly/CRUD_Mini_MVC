@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Liste des Utilisateurs</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <header class="bg-primary text-white p-3 d-flex justify-content-center">
+        <?php
+            if($flash !== null) {
+                echo $flash;
+            }
+        ?>
+    </header>
+    <main class="container mt-5">
+        <h1>Liste des Utilisateurs</h1>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nom</th>
+                    <th>Prénom</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($users as $user) { ?>
+                    <tr>
+                        <td><?php echo $user->getId(); ?></td>
+                        <td><?php echo $user->getName(); ?></td>
+                        <td><?php echo $user->getSurname(); ?></td>
+                        <td>
+                            <a href="index.php?controller=Users&method=update&id=<?php echo $user->getId(); ?>" class="btn btn-primary">Modifier</a>
+                            <a href="index.php?controller=Users&method=delete&id=<?php echo $user->getId(); ?>" class="btn btn-danger">Supprimer</a>
+                        </td>
+                    </tr>
+                <?php } ?>
+            </tbody>
+        </table>
+        <a href="index.php?controller=index&method=create" class="btn btn-success">Ajouter un nouvel utilisateur</a>
+    </main>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+{
+    "name": "nordy/php",
+    "autoload": {
+        "psr-4": {
+            "Nordy\\Php\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "NordyFly",
+            "email": "benomar886@outlook.fr"
+        }
+    ],
+    "require": {}
+}
